@@ -23,7 +23,7 @@ export default function State() {
   return (
     <>
       <main
-        className={`px-8 md:px-24 pb-8 flex flex-col items-start ${style.background}`}
+        className={`min-h-screen px-8 md:px-24 pb-8 flex flex-col items-start ${style.background}`}
       >
         <div className='flex w-full items-center justify-between'>
           <Search
@@ -40,8 +40,9 @@ export default function State() {
           />
         </div>
         <section className='grid auto-rows-auto grid-cols-1 lg:grid-cols-4 md:grid-cols-3 gap-0 lg:gap-16 gap-y-14 w-full'>
-          {Countries.slice(0, 12)
-            .filter((e) => (FilterTerms !== '' ? e.region == FilterTerms : e))
+          {Countries.filter((e) =>
+            FilterTerms !== '' ? e.region == FilterTerms : e
+          )
             .filter((e) =>
               e.name.toLowerCase().includes(SearchTerms.toLowerCase())
             )
